@@ -7,7 +7,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
+    console.log('New user');
     socket.on('chat message', function(msg){
+        console.log('New message: ' + msg);
         io.emit('chat message', msg);
     });
 });
